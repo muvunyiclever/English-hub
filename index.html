@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>English Hub</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body{
+      font-family: Arial;
+      background:#f2f2f2;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      height:100vh;
+    }
+    .box{
+      background:white;
+      padding:25px;
+      border-radius:10px;
+      width:90%;
+      max-width:350px;
+      text-align:center;
+      box-shadow:0 0 10px rgba(0,0,0,0.1);
+    }
+    input,button{
+      width:100%;
+      padding:12px;
+      margin:8px 0;
+      border-radius:5px;
+      border:1px solid #ccc;
+    }
+    button{
+      background:#2ecc71;
+      color:white;
+      border:none;
+      font-size:16px;
+    }
+    button:hover{
+      background:#27ae60;
+    }
+    #msg{
+      margin-top:10px;
+      font-weight:bold;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="box">
+  <h2>English Hub</h2>
+  <p>Login to meet live learners</p>
+
+  <input type="email" id="email" placeholder="Enter email">
+  <input type="password" id="password" placeholder="Enter password">
+
+  <button onclick="login()">Login</button>
+
+  <p id="msg"></p>
+</div>
+
+<script>
+function login(){
+  let email = document.getElementById("email").value;
+  let password = document.getElementById("password").value;
+
+  if(email != "" && password != ""){
+    localStorage.setItem("user", email);
+    window.location.href = "home.html";
+  }else{
+    document.getElementById("msg").innerHTML = "Fill all fields ❌";
+  }
+}
+</script>
+
+</body>
+</html>
